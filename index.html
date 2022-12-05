@@ -1268,6 +1268,92 @@ var user, educationMessage = [
 ],
 education = iText = 0,
 textRe = educationMessage[0];
+		
+var shop_list = {
+
+building: {
+
+	1: [
+		15,
+		'-44px -200px',
+	],
+	2: [
+		75,
+		'-30px -400px',
+	],
+	3: [
+		350,
+		'-44px -30px',
+		'190'
+	],
+	4: [
+		1200,
+		'-240px -390px',
+		'180'
+	],
+	5: [
+		6000,
+		'-40px -610px',
+	],
+	6: [
+		20000,
+		'-440px -30px',
+	],
+	7: [
+		50000,
+		'-470px -220px',
+		'170'
+	],
+	8: [
+		120000,
+		'-630px -30px',
+	],
+	9: [
+		380000,
+		'-420px -390px',
+	],
+	10: [
+		900000,
+		'-420px -610px',
+	],
+	11: [
+		1500000,
+		'-620px -410px',
+	],
+	12: [
+		3000000,
+		'-250px -610px',
+		'160'
+	],
+},
+upgrade: {
+
+	1: [
+		30,
+		'bus'
+	],
+	2: [
+		100,
+		'wood'
+	],
+	3: [
+		500,
+		'traffic'
+	],
+	4: [
+		3000,
+		'light'
+	],
+	5: [
+		12000,
+		'bus'
+	],
+	6: [
+		60000,
+		'wood'
+	],
+}
+};
 
 function textRead ()
 {
@@ -1320,17 +1406,22 @@ if (data.keys[0].value != '' && data.keys[0].value != null)
 	it('shop .moneyShopText').html(money);
 	it('upt .moneyShopText').html(money);
 
-		for ( x of user.building )
-		{
+	for ( x of user.building )
+	{
 
-			d.querySelector('.building[data-build="' + x + '"]').style.display = 'block';
-			delete shop_list.building[x];
-		}
+		d.querySelector('.building[data-build="' + x + '"]').style.display = 'block';
+		delete shop_list.building[x];
+	}
 
 	if (user.update >= 1)
 		for (var i = 1; i != (user.update + 1); i++)
 		{
-			d.querySelector('[data-upg="' + i + '"]').style.display = 'block';
+			y = d.querySelectorAll('[data-upg="' + i + '"]');
+			for ( x of y )
+			{
+				x.style.display = 'block';
+			}
+			
 			delete shop_list.upgrade[i];
 		}
 
@@ -1625,92 +1716,6 @@ else {
 	setTimeout(musicRepeatTest, 1000);
 }
 }
-
-var shop_list = {
-
-building: {
-
-	1: [
-		15,
-		'-44px -200px',
-	],
-	2: [
-		75,
-		'-30px -400px',
-	],
-	3: [
-		350,
-		'-44px -30px',
-		'190'
-	],
-	4: [
-		1200,
-		'-240px -390px',
-		'180'
-	],
-	5: [
-		6000,
-		'-40px -610px',
-	],
-	6: [
-		20000,
-		'-440px -30px',
-	],
-	7: [
-		50000,
-		'-470px -220px',
-		'170'
-	],
-	8: [
-		120000,
-		'-630px -30px',
-	],
-	9: [
-		380000,
-		'-420px -390px',
-	],
-	10: [
-		900000,
-		'-420px -610px',
-	],
-	11: [
-		1500000,
-		'-620px -410px',
-	],
-	12: [
-		3000000,
-		'-250px -610px',
-		'160'
-	],
-},
-upgrade: {
-
-	1: [
-		30,
-		'bus'
-	],
-	2: [
-		100,
-		'wood'
-	],
-	3: [
-		500,
-		'traffic'
-	],
-	4: [
-		3000,
-		'light'
-	],
-	5: [
-		12000,
-		'bus'
-	],
-	6: [
-		60000,
-		'wood'
-	],
-}
-};
 
 shopCreate ();
 upgCreate ();
