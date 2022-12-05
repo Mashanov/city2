@@ -1337,7 +1337,7 @@ if (data.keys[0].value != '' && data.keys[0].value != null)
 
 } else {
 	
-	it('#backgroundEducation').css({display: 'none'});
+	it('#backgroundEducation').css({display: 'block'});
 	textRead ();
 
 	user = {
@@ -1390,7 +1390,7 @@ if (user.music == 1)
 function save ()
 {
 
-//vkBridge.send('VKWebAppStorageSet', {key: 'game', value: JSON.stringify(user)});
+  vkBridge.send('VKWebAppStorageSet', {key: 'game', value: JSON.stringify(user)});
 }
 
 function deleteSave ()
