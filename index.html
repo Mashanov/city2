@@ -1361,7 +1361,7 @@ function newClick ()
 {
 
 user.money = Number(user.money) + (user.click * user.ads[2]);
-var money = '$ ' + user.money;
+var money = '$ ' + user.money.toFixed(1);
 it('#moneyText').html(money);
 it('shop .moneyShopText').html(money);
 it('upt .moneyShopText').html(money);
@@ -1412,7 +1412,7 @@ if (fromType == 'build')
 	money = user.money * 1000000;
 
 	user.money = (money - fromMoney) / 1000000;
-	var money = '$ ' + user.money;
+	var money = '$ ' + user.money.toFixed(1);
 	it('#moneyText').html(money);
 	it('shop .moneyShopText').html(money);
 	it('upt .moneyShopText').html(money);
@@ -1435,7 +1435,7 @@ if (fromType == 'build')
 	if ( user.money < fromMoney ) return null
 
 	user.money = (Number(user.money) - fromMoney).toFixed(1);
-	var money = '$ ' + user.money;
+	var money = '$ ' + user.money.toFixed(1);
 	it('#moneyText').html(money);
 	it('shop .moneyShopText').html(money);
 	it('upt .moneyShopText').html(money);
@@ -1490,8 +1490,8 @@ else if (user.update == 5) money = money + (5.1 * 1000000) * user.ads[2];
 else if (user.update == 6) money = money + (10.1 * 1000000) * user.ads[2];
 
 money = money / 1000000;
-user.money = money;
-money = '$ ' + money;
+user.money = money.toFixed(1);
+money = '$ ' + money.toFixed(1);
 
 it('#moneyText').html(money);
 it('shop .moneyShopText').html(money);
