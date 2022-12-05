@@ -1445,6 +1445,9 @@ if (data.keys[0].value != '' && data.keys[0].value != null)
 		]
 	}
 }
+
+setTimeout(function (){shopCreate ();
+upgCreate ();}, 500);
 });
 
 function newClick ()
@@ -1716,9 +1719,6 @@ else {
 	setTimeout(musicRepeatTest, 1000);
 }
 }
-
-shopCreate ();
-upgCreate ();
 
 s.onblur = function(){music.pause ()}
 	</script>
