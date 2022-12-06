@@ -1612,12 +1612,6 @@ function closeShop (from)
 {
 
 from.parentNode.style.left = '-100%';
-if ((Number(user.ads[0]) + 120) <= (new Date () / 1000 | 0))
-{
-
-	user.ads[0] = new Date () / 1000 | 0;
-	vkBridge.send('VKWebAppShowNativeAds', {ad_format:'interstitial'});
-}
 }
 
 function musicRepeatTest ()
